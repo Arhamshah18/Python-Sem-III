@@ -1,3 +1,4 @@
+#Using word.split() for variable input 
 #required & keyword argument 
 def req(b,a):
     print(f"name={a}\nRoll no.={b}")
