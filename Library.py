@@ -3,10 +3,11 @@ class Library:
     global books
     global iss
     global detail
-    books=["harry potter","disney","Avengers"]
+    books=["harry potter","disney","Avengers"];iss=''
     def add(b):
         books.append(b) 
-        print(f"{b} Returned!! ")
+        print(f"{b} added to Library")
+        print("New booklist : \n{books}") 
     def issue(a):
         if a in books:
             books.remove(a)
@@ -16,27 +17,35 @@ class Library:
             print("No such books exists")
             return False 
     def ret(k):
-        iss.remove(k)
-        books.append(k) 
+        if k in iss:
+            iss.remove(k)
+            books.append(k) 
+            print(f"{k} book Returned!! ")
+        else:
+            print("No such book issued")
     def details(n,c,id,nb):
         d={"Name" : n,
            "book" : nb,
            "Class" : c,
            "ID no." :id}
         detail.append(d)
+        return d
 i=4
 while(i>0):       
-    i=int(input(f"Welcome to Library.\nFollowing Books Available:\n{books}\nPress 1 for returning book and 2 for book issue\npress 0 to exit.\n"))
+    i=int(input(f"Welcome to Library.\nFollowing Books Available:\n{books}\nEnter 1 for returning book \nEnter 2 for book issue\nEnter 3 to add book in Library\nEnter 0 to exit.\n"))
     if i==1:
         r=input("Enter name of book to return : ")
-        Library.add(r)
+        Library.ret(r)
     elif i==2:
-        iis=input("Enter name of book to issue : ") 
-        if Library.issue(iis):
+        ps=input("Enter name of book to issue : ") 
+        if Library.issue(ps):
             name=input("Enter name : ")
             clas=input("Enter class : ")
-            idd=input("Enter ID Number : ")
-            Library.details(name,clas,idd,iis) 
-            print("Book issued and Following details recorded :");print("\n",detail) 
+            idd=input("Enter ID Number : ") 
+            print("Book issued and Following details recorded :")
+            print("\n",Library.details(name,clas,idd,ps)) 
+    elif i==3:
+        ko=input("Enter the name of book to add : ") 
+        Library.add(ko)
     elif i!=0:
         print("Invalid choice") 
