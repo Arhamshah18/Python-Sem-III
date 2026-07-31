@@ -63,7 +63,7 @@ public:
 
 int main() {
     int y; 
-    cout << "Enter required length for queue : ";
+    cout << "Enter required length for queue(Maximum=100) : ";
     cin >> y;
     Queue q;
     q.que(y);
