@@ -5,6 +5,7 @@ public:
     void que(int a) {
         const int ms = 100;
         int capacity = (a > ms)?ms:a;
+        if(a>100){cout<<"size is set to 100";}
         int qu[ms];
         int k = 6;
         int ind = 0;
